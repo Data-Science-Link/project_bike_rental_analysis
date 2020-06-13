@@ -1,0 +1,34 @@
+USE cb;
+
+CREATE TABLE cities(
+    name TEXT,
+    population INTEGER
+);
+
+SELECT * from cities;
+
+
+CREATE TABLE sample (
+    tripduration INTEGER,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+SELECT * FROM sample WHERE start_station_id == 72;
+
+select * from sample
+order by random()
+limit 10;
+

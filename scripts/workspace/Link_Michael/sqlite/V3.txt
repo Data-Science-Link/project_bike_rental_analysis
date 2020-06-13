@@ -1,0 +1,240 @@
+CREATE TABLE yr_2019 (
+    tripduration INTEGER,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+--SELECT * FROM yr_2019 LIMIT 100;
+
+CREATE TABLE yr_2018 (
+    tripduration INTEGER,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2017 (
+    tripduration INTEGER,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2016 (
+    tripduration INTEGER,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2015 (
+    tripduration INTEGER,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2014 (
+    tripduration INTEGER,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2013 (
+    tripduration INTEGER,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2005 (
+    tripduration INTEGER,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2004 (
+    tripduration INTEGER,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2003 (
+    tripduration INTEGER,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2002 (
+    tripduration INTEGER,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2001 (
+    tripduration INTEGER,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+/*SELECT * FROM yr_2001 LIMIT 10;*/
+
+DROP TABLE schwinning;
+DROP TABLE yr_2001;
+DROP TABLE yr_2002;
+DROP TABLE yr_2003;
+DROP TABLE yr_2004;
+DROP TABLE yr_2005;
+DROP TABLE yr_2006;
+DROP TABLE yr_2007;
+DROP TABLE yr_2008;
+DROP TABLE yr_2009;
+DROP TABLE yr_2010;
+DROP TABLE yr_2011;
+DROP TABLE yr_2012;
+DROP TABLE yr_2013;
+DROP TABLE yr_2014;
+DROP TABLE yr_2015;
+DROP TABLE yr_2016;
+DROP TABLE yr_2017;
+DROP TABLE yr_2018;
+DROP TABLE yr_2019;
