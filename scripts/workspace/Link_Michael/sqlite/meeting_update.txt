@@ -1,0 +1,32 @@
+Start with empty table
+Gradually add each to master table
+Code in hive class.... 
+
+
+Steps:
+	Subsample from SQL to python pandas dataframe
+	Visually inspect imbalanced feature class or numerical variable
+		as historgram
+	After finding "good" subsample save it and merge with others
+
+Tasks:
+	- Figure out how we want to subsample (per csv or per year)
+	- Come up with graphical subsample methodology
+
+df_201901.starttime = pd.to_datetime(df_201901.starttime, format= "%Y-%m-%d %H:%M:%S.%f")
+
+    tripduration INTEGER, 
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER, #yes#
+		    start_station_name TEXT, #same#
+		    start_station_latitude REAL,  #same#
+		    start_station_longitude REAL, #same#
+    end_station_id INTEGER,  #yes#
+		    end_station_name TEXT, #same#
+		    end_station_latitude REAL, #same#
+		    end_station_longitude REAL, #same#
+    bikeid INTEGER, #~yes#
+    usertype TEXT, #yes#
+    birth_year > age INTEGER,#yes# -Bin this
+    gender INTEGER #yes#
