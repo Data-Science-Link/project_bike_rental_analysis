@@ -1,0 +1,279 @@
+CREATE TABLE yr_2020 (
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2019 (
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2018 (
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2017 (
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2016 (
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2015 (
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2014 (
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2013 (
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+--2020
+ALTER TABLE yr_2020 ADD COLUMN counter integer;
+ALTER TABLE yr_2020 ADD COLUMN year integer;
+ALTER TABLE yr_2020 ADD COLUMN age integer;
+UPDATE yr_2020 SET counter = 1;
+UPDATE yr_2020 SET year = 2020;
+UPDATE yr_2020 SET age = year-birth_year;
+
+--2019
+ALTER TABLE yr_2019 ADD COLUMN counter integer;
+ALTER TABLE yr_2019 ADD COLUMN year integer;
+ALTER TABLE yr_2019 ADD COLUMN age integer;
+UPDATE yr_2019 SET counter = 1;
+UPDATE yr_2019 SET year = 2019;
+UPDATE yr_2019 SET age = year-birth_year;
+
+--2018
+ALTER TABLE yr_2018 ADD COLUMN counter integer;
+ALTER TABLE yr_2018 ADD COLUMN year integer;
+ALTER TABLE yr_2018 ADD COLUMN age integer;
+UPDATE yr_2018 SET counter = 1;
+UPDATE yr_2018 SET year = 2018;
+UPDATE yr_2018 SET age = year-birth_year;
+
+--2017
+ALTER TABLE yr_2017 ADD COLUMN counter integer;
+ALTER TABLE yr_2017 ADD COLUMN year integer;
+ALTER TABLE yr_2017 ADD COLUMN age integer;
+UPDATE yr_2017 SET counter = 1;
+UPDATE yr_2017 SET year = 2017;
+UPDATE yr_2017 SET age = year-birth_year;
+
+--2016
+ALTER TABLE yr_2016 ADD COLUMN counter integer;
+ALTER TABLE yr_2016 ADD COLUMN year integer;
+ALTER TABLE yr_2016 ADD COLUMN age integer;
+UPDATE yr_2016 SET counter = 1;
+UPDATE yr_2016 SET year = 2016;
+UPDATE yr_2016 SET age = year-birth_year;
+
+--2015
+ALTER TABLE yr_2015 ADD COLUMN counter integer;
+ALTER TABLE yr_2015 ADD COLUMN year integer;
+ALTER TABLE yr_2015 ADD COLUMN age integer;
+UPDATE yr_2015 SET counter = 1;
+UPDATE yr_2015 SET year = 2015;
+UPDATE yr_2015 SET age = year-birth_year;
+
+--2014
+ALTER TABLE yr_2014 ADD COLUMN counter integer;
+ALTER TABLE yr_2014 ADD COLUMN year integer;
+ALTER TABLE yr_2014 ADD COLUMN age integer;
+UPDATE yr_2014 SET counter = 1;
+UPDATE yr_2014 SET year = 2014;
+UPDATE yr_2014 SET age = year-birth_year;
+
+--2013
+ALTER TABLE yr_2013 ADD COLUMN counter integer;
+ALTER TABLE yr_2013 ADD COLUMN year integer;
+ALTER TABLE yr_2013 ADD COLUMN age integer;
+UPDATE yr_2013 SET counter = 1;
+UPDATE yr_2013 SET year = 2013;
+UPDATE yr_2013 SET age = year-birth_year;
+
+
+CREATE TABLE cb (
+    tripduration INTEGER,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER,
+    counter integer,
+    year integer,
+    age integer
+);
+
+2013 into cb
+SELECT COUNT(*) FROM cb; -- 5614888
+INSERT INTO cb SELECT * FROM yr_2013; -- already ran this then crashed. Will comment out and move to next year.
+select * from cb limit 2;
+SELECT COUNT(*) FROM yr_2013; -- 5614888
+SELECT COUNT(*) FROM cb;  -- 5614888
+
+
+2014 into cb
+INSERT INTO cb SELECT * FROM yr_2014; 
+SELECT COUNT(*) FROM yr_2014; -- 8081216
+SELECT COUNT(*) FROM cb;  -- 13696104
+
+
+2015 into cb
+INSERT INTO cb SELECT * FROM yr_2015; 
+SELECT COUNT(*) FROM yr_2015; -- 9990852
+SELECT COUNT(*) FROM cb;  -- 23686956
+
+
+2016 into cb
+INSERT INTO cb SELECT * FROM yr_2016; 
+SELECT COUNT(*) FROM yr_2016; -- 14093239
+SELECT COUNT(*) FROM cb;  -- 37780195
+
+
+2017 into cb
+INSERT INTO cb SELECT * FROM yr_2017; 
+SELECT COUNT(*) FROM yr_2017; -- 16659585
+SELECT COUNT(*) FROM cb;  -- 54439780
+
+
+2018 into cb
+INSERT INTO cb SELECT * FROM yr_2018; 
+SELECT COUNT(*) FROM yr_2018; -- 17902231
+SELECT COUNT(*) FROM cb;  -- 72342011
+
+
+2019 into cb
+INSERT INTO cb SELECT * FROM yr_2019; 
+SELECT COUNT(*) FROM yr_2019; -- 20956644
+SELECT COUNT(*) FROM cb;  -- 93298655
+
+
+2020 into cb
+INSERT INTO cb SELECT * FROM yr_2020; 
+SELECT COUNT(*) FROM yr_2020; -- 5727581
+SELECT COUNT(*) FROM cb;  -- 99026236
+

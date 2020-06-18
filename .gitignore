@@ -7,3 +7,6 @@
 *.db
 *.sqlite
 *.DS_Store
+*.tar.gz
+*.gz
+*.tar
