@@ -1,0 +1,171 @@
+CREATE TABLE yr_2010 (
+    dummy INTEGER,
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    bikeid INTEGER,
+    usertype TEXT
+);
+
+SELECT* FROM yr_2010 LIMIT 10;
+
+CREATE TABLE yr_2011 (
+    dummy INTEGER,
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    bikeid INTEGER,
+    usertype TEXT
+);
+
+CREATE TABLE yr_2012 (
+    dummy INTEGER,
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    bikeid INTEGER,
+    usertype TEXT
+);
+
+CREATE TABLE yr_2013 (
+    dummy INTEGER,
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    bikeid INTEGER,
+    usertype TEXT
+);
+
+CREATE TABLE yr_2014 (
+    dummy INTEGER,
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    bikeid INTEGER,
+    usertype TEXT
+);
+
+CREATE TABLE yr_2015 (
+    dummy INTEGER,
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    bikeid INTEGER,
+    usertype TEXT
+);
+
+CREATE TABLE yr_2016 (
+    dummy INTEGER,
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    bikeid INTEGER,
+    usertype TEXT
+);
+
+CREATE TABLE yr_2017 (
+    dummy INTEGER,
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    bikeid INTEGER,
+    usertype TEXT
+);
+
+DROP TABLE dc;
+
+CREATE TABLE dc (
+    dummy INTEGER,
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    bikeid INTEGER,
+    usertype TEXT
+);
+
+--2010 into cb
+SELECT COUNT(*) FROM dc; -- 0
+INSERT INTO dc SELECT * FROM yr_2010; 
+SELECT COUNT(*) FROM yr_2010; -- 115597
+SELECT COUNT(*) FROM dc;  -- 115597
+
+--2011 into cb
+SELECT COUNT(*) FROM dc; -- 
+INSERT INTO dc SELECT * FROM yr_2011;
+SELECT COUNT(*) FROM yr_2011; -- 1226767
+SELECT COUNT(*) FROM dc;  -- 1342364
+
+--2012 into cb
+SELECT COUNT(*) FROM dc; -- 
+INSERT INTO dc SELECT * FROM yr_2012;
+SELECT COUNT(*) FROM yr_2012; -- 2028911
+SELECT COUNT(*) FROM dc;  -- 3371275
+
+--2013 into cb
+SELECT COUNT(*) FROM dc; -- 
+INSERT INTO dc SELECT * FROM yr_2013;
+SELECT COUNT(*) FROM yr_2013; -- 2555541
+SELECT COUNT(*) FROM dc;  -- 5926816
+
+--2014 into cb
+SELECT COUNT(*) FROM dc; -- 
+INSERT INTO dc SELECT * FROM yr_2014;
+SELECT COUNT(*) FROM yr_2014; -- 2913150
+SELECT COUNT(*) FROM dc;  -- 8839966
+
+--2015 into cb
+SELECT COUNT(*) FROM dc; -- 
+INSERT INTO dc SELECT * FROM yr_2015;
+SELECT COUNT(*) FROM yr_2015; -- 3185906
+SELECT COUNT(*) FROM dc;  -- 12025872
+
+--2016 into cb
+SELECT COUNT(*) FROM dc; -- 
+INSERT INTO dc SELECT * FROM yr_2016;
+SELECT COUNT(*) FROM yr_2016; -- 3333994
+SELECT COUNT(*) FROM dc;  -- 15359866
+
+--2017 into cb
+SELECT COUNT(*) FROM dc; -- 
+INSERT INTO dc SELECT * FROM yr_2017;
+SELECT COUNT(*) FROM yr_2017; -- 3757777
+SELECT COUNT(*) FROM dc;  -- 19117643
+
+
+
