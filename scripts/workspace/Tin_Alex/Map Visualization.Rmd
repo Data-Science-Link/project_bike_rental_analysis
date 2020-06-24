@@ -19,8 +19,6 @@ library(DT)
 library(viridis)
 library(lubridate)
 library(janitor)
-
-library(xts)
 ```
 
 Read in csv files
@@ -37,12 +35,9 @@ str(yr_total)
 ```
 
 ```{r}
-
-yr_total$time = hm(yr_total$time)
-yr_total$date = ymd(yr_total$date)
-yr_total <- yr_total %>% mutate(., year = year(yr_total$date))
-
+yr_total %>% select(., ,status) %>% filter(., in_service == 0)
 ```
+
 
 
 ```{r}
@@ -53,15 +48,26 @@ sapply(yr_total, function(x) sum(is.na(x)))
 
 
 ```{r}
+yr_total$minute = sapply(yr_total$minute, function(x) ifelse(x <30, '00','30'))
+yr_total$hour = as.character(yr_total$hour)
+yr_total$time = with(yr_total, paste0(hour, ':',minute))
+yr_total$hour = strtoi(yr_total$hour)
+yr_total$minute = strtoi(yr_total$minute)
+yr_total$time = hm(yr_total$time)
+yr_total$date = ymd(yr_total$date)
+yr_total <- yr_total %>% mutate(., year = year(yr_total$date))
+yr_total$status <- factor(yr_total$status, levels(yr_total$status)[c(5,1,3,6,2,4)])
+```
 
-table(yr_total$status)
+```{r}
+levels(yr_total$status)
+```
 
 
+```{r}
 
 # Visualize # of status (grouped by year)
-yr_total %>% ggplot() + geom_bar(aes(x=year, fill=status))
-
-
+yr_total %>% ggplot() + geom_bar(aes(x=year, fill=status)) + coord_flip()
 
 ```
 
@@ -69,23 +75,37 @@ yr_total %>% ggplot() + geom_bar(aes(x=year, fill=status))
 ```{r}
 
 
-yr_total %>% select(., year, status) %>% adorn_percentages(denominator = 'row') %>% ggplot() + geom_bar(aes(x=year, y=..prop.., fill=status), position = 'stack', stat = 'identity') 
-
-
+# yr_total %>% select(., year, status) %>% adorn_percentages(denominator = 'row') %>% ggplot() + geom_bar(aes(x=year, y=..prop.., fill=status), position = 'stack', stat = 'identity') 
 
 status_prop <- yr_total %>%  select(., year, status) %>% group_by(., year, status) %>% summarise(., sum_count = length(status)) %>% mutate(., prop = prop.table(sum_count))
 
 
-status_prop
+myColors <-c("#FF9AA2", "#FFB7B2","#FFDAC1",'#E2F0CB','#B5EAD7','#C7CEEA')
+# colScale = scale_color_manual(name='Status', values = myColors)
 
-status_prop %>% ggplot(aes(x=year, y=prop)) + geom_bar(aes(fill=status), stat='identity')
+
+status_prop %>% ggplot(aes(x=year, y=prop)) + geom_bar(aes(fill=status), position='dodge',stat='identity') + scale_fill_manual(values = c("#FF9AA2", "#FFB7B2","#FFDAC1",'#E2F0CB','#B5EAD7','#C7CEEA')) + scale_fill_hue(l=50, c=100)
+
+```
+
+
+```{r}
+# Remove "Status OK"
+no_ok <- yr_total %>% filter(., status != 'Status OK', status !='Out of Service')
 
 
 ```
 
 
+```{r}
+regular_hours <- no_ok %>% filter(., (hour >= 6 & hour < 23)) 
+
+off_hours <- no_ok %>% filter(., (hour < 6 | hour >= 23))
+
+regular_hours %>% group_by(year, status) %>% count(status) %>% ggplot() + geom_bar()
 
 
+```
 
 
 For Shiny app
@@ -94,10 +114,13 @@ For Shiny app
 # Create "year" column
 hourly <- yr_total %>% select(., dock_id, dock_name, hour, X_lat, X_long, season, percentage, year)
 
-
-
 # Create grouped ready for visualization
 hourly_grouped <- hourly %>% group_by(., dock_id, dock_name, X_lat, X_long, year, season, hour) %>% summarise(., avg_pct = mean(percentage)) %>% mutate(., status_sum = cut(avg_pct, breaks = c(-1,0.01, 0.15, 0.85,0.99, 1), labels = c('No bikes','Need bikes','Status OK','Need space','Full')))
+
+```
+
+
+```{r}
 
 ```
 
@@ -118,53 +141,62 @@ statuspal <- colorFactor(viridis(5), domain = hourly_grouped$status_sum)
 
 
 # Leaflet visualization
-hourly_grouped %>% filter(., year == 2018 & season == 'Autumn' & hour ==9) %>% leaflet() %>% addProviderTiles('CartoDB.Positron') %>% addCircleMarkers(lng=~X_long, lat=~X_lat, color = ~statuspal(status_sum), popup = ~status_sum, label=~dock_name, radius=3) %>% addLegend('bottomright', pal=statuspal, values=~status_sum)
+hourly_grouped %>% filter(., year == 2018 & season == 'Spring' & hour== 17) %>% leaflet() %>% addProviderTiles('CartoDB.Positron') %>% addCircleMarkers(lng=~X_long, lat=~X_lat, color = ~statuspal(status_sum), popup = ~status_sum, label=~dock_name, radius=3) %>% addLegend('bottomright', pal=statuspal, values=~status_sum)
 
 
 ```
 
 
 ```{r}
-hourly_grouped
+rebalance_need <- yr_total %>% select(year, season, status, dock_id, dock_name, X_long, X_lat, in_service, time, hour, percentage, status) %>% filter(., status %in% c('Need bikes', 'No bikes'))
+
+
+# too_full <- hourly_grouped %>% filter(., status_sum %in% c('Need space','Full')) %>% group_by(., season, status_sum, hour) %>% agg(status_sum:)
 ```
 
+```{r}
+rebalance_need %>% group_by(., year) %>% summarise(., count=n_distinct(dock_id))
 
 
 
 
 
+rebalance_need %>% filter(., year== 2018, hour== 17) %>% leaflet() %>% 
+  addProviderTiles('CartoDB.Positron') %>% 
+  addCircleMarkers(lng=~X_long, lat=~X_lat, radius=3,label =~percentage, color=~statuspal(percentage)) 
 
+# %>% addLegend('bottomright', pal=statuspal, values=~percentage)
+```
 
+```{r}
+rebalance_need
 
-
-
-
-
-
-
-
-
-
-
+yr_total
+```
 
 
 
 ```{r}
+rebalance_hist <- rebalance_need %>%  select(., year, season, hour, status) %>% group_by(., year, season, hour) %>% count(., status) 
 
-Bikestatus = yr_total %>% select(., status)
 
-Bikestatus %>% ggplot() + geom_bar(., aes(x=Status, color = Status))
+rebalance_hist %>% ggplot() + geom_bar(aes(x=hour, y=n), stat='identity')
+
 ```
 
 
-
-Create leaflet visualization
 ```{r}
-
-mapcolors <- colorRamp(c('Blue','Red'))
-
-map <- leaflet() %>% addCircleMarkers(data=viz_model, ~X_long, ~X_lat, popup =viz_model$percentage, radius =3, fillOpacity=0.5) %>% setView(lng = -74.00887, lat = 40.730610, zoom = 12) %>%
-  addLegend('bottomright', pal=mapcolors, values=~percentage)
-map
+rebalance_hist
 ```
+
+
+```{r}
+str(yr_total)
+```
+
+
+```{r}
+rebalance_need
+```
+
 
