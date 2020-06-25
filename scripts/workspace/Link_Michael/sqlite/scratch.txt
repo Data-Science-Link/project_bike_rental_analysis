@@ -1,0 +1,98 @@
+tripduration,starttime,stoptime,start station id,start station name,start station latitude,start station longitude,end station id,end station name,end station latitude,end station longitude,bikeid,usertype,birth year,gender
+789,2020-01-01 00:00:55.3900,2020-01-01 00:14:05.1470,504,1 Ave & E 16 St,40.73221853,-73.98165557,307,Canal St & Rutgers St,40.71427487,-73.98990025,30326,Subscriber,1992,1
+1541,2020-01-01 00:01:08.1020,2020-01-01 00:26:49.1780,3423,West Drive & Prospect Park West,40.6610633719006,-73.97945255041121,3300,Prospect Park West & 8 St,40.66514681533792,-73.97637605667114,17105,Customer,1969,1
+1464,2020-01-01 00:01:42.1400,2020-01-01 00:26:07.0110,3687,E 33 St & 1 Ave,40.74322681432173,-73.97449783980845,259,South St & Whitehall St,40.70122128,-74.01234218,40177,Subscriber,1963,1
+
+
+awk -F'\t' -v OFS='\t' '
+  NR == 1 {print "ID", $0; next}
+  {print (NR-1), $0}
+' first_rows_with_idx.csv > output.csv
+
+awk -F'\t' -v OFS='\t' '
+  NR == 1 {print "ID,", $0; next}
+  {print (NR-1), ",", $0}
+' first_rows_with_idx.csv > output.csv
+
+awk -F',' -v OFS=',' '
+  NR == 1 {print "ID", $0; next}
+  {print (NR-1), $0}
+' first_rows_with_idx.csv > output.csv
+
+sed -i '' 1d first_rows_no_header_auto.csv
+
+sed -i '' 1d 2010-capitalbikeshare-tripdata_NH_Dummy.csv
+sed -i '' 1d 2011-capitalbikeshare-tripdata_NH_Dummy.csv
+sed -i '' 1d 2012-capitalbikeshare-tripdata_NH_Dummy.csv
+sed -i '' 1d 2013-capitalbikeshare-tripdata_NH_Dummy.csv
+sed -i '' 1d 2014-capitalbikeshare-tripdata_NH_Dummy.csv
+sed -i '' 1d 2015-capitalbikeshare-tripdata_NH_Dummy.csv
+sed -i '' 1d 2016-capitalbikeshare-tripdata_NH_Dummy.csv
+sed -i '' 1d 2017-capitalbikeshare-tripdata_NH_Dummy.csv
+
+awk -F, '{$1=++i FS $1;}1' OFS=, 2010-capitalbikeshare-tripdata_NH_Dummy.csv > 2010-capitalbikeshare-tripdata_NH_D.csv
+awk -F, '{$1=++i FS $1;}1' OFS=, 2011-capitalbikeshare-tripdata_NH_Dummy.csv > 2011-capitalbikeshare-tripdata_NH_D.csv
+awk -F, '{$1=++i FS $1;}1' OFS=, 2012-capitalbikeshare-tripdata_NH_Dummy.csv > 2012-capitalbikeshare-tripdata_NH_D.csv
+awk -F, '{$1=++i FS $1;}1' OFS=, 2013-capitalbikeshare-tripdata_NH_Dummy.csv > 2013-capitalbikeshare-tripdata_NH_D.csv
+awk -F, '{$1=++i FS $1;}1' OFS=, 2014-capitalbikeshare-tripdata_NH_Dummy.csv > 2014-capitalbikeshare-tripdata_NH_D.csv
+awk -F, '{$1=++i FS $1;}1' OFS=, 2015-capitalbikeshare-tripdata_NH_Dummy.csv > 2015-capitalbikeshare-tripdata_NH_D.csv
+awk -F, '{$1=++i FS $1;}1' OFS=, 2016-capitalbikeshare-tripdata_NH_Dummy.csv > 2016-capitalbikeshare-tripdata_NH_D.csv
+awk -F, '{$1=++i FS $1;}1' OFS=, 2017-capitalbikeshare-tripdata_NH_Dummy.csv > 2017-capitalbikeshare-tripdata_NH_D.csv
+
+
+awk -F, '{$1=++i FS $1;}1' OFS=, first_rows_dummy.csv
+awk -F, '{$1=++i FS $1;}1' OFS=, first_rows_dummy.csv > first_rows_dummy.csv
+awk -F, '{$1=++i FS $1;}1' OFS=, first_rows_dummy.csv > dummy.csv
+
+awk -F, '{$1=++i FS $1;}1' OFS=, combined_no_header.csv > dummy.csv
+
+combined_no_header.csv
+
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2014
+sed -i '' 1d combined_no_header.csv
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2015
+sed -i '' 1d combined_no_header.csv
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2016
+sed -i '' 1d combined_no_header.csv
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2017
+sed -i '' 1d combined_no_header.csv
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2018
+sed -i '' 1d combined_no_header.csv
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2019
+sed -i '' 1d combined_no_header.csv
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2020
+sed -i '' 1d combined_no_header.csv
+
+
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2013
+awk -F, '{$1=++i FS $1;}1' OFS=, combined_no_header.csv > combined_no_header_dummy.csv
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2014
+awk -F, '{$1=++i FS $1;}1' OFS=, combined_no_header.csv > combined_no_header_dummy.csv
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2015
+awk -F, '{$1=++i FS $1;}1' OFS=, combined_no_header.csv > combined_no_header_dummy.csv
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2016
+awk -F, '{$1=++i FS $1;}1' OFS=, combined_no_header.csv > combined_no_header_dummy.csv
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2017
+awk -F, '{$1=++i FS $1;}1' OFS=, combined_no_header.csv > combined_no_header_dummy.csv
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2018
+awk -F, '{$1=++i FS $1;}1' OFS=, combined_no_header.csv > combined_no_header_dummy.csv
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2019
+awk -F, '{$1=++i FS $1;}1' OFS=, combined_no_header.csv > combined_no_header_dummy.csv
+
+cd /Users/michaellink/Desktop/__NYCDSA/_Projects/Capstone/scripts/workspace/Link_Michael/tripdata/_2020
+awk -F, '{$1=++i FS $1;}1' OFS=, combined_no_header.csv > combined_no_header_dummy.csv
+

@@ -1,0 +1,121 @@
+DROP TABLE yr_2020_Full;
+DROP TABLE temp_table;
+DROP TABLE first_rows;
+DROP TABLE first_rows_no_header_manual;
+DROP TABLE first_rows_no_header_auto;
+
+CREATE TABLE first_rows (
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE first_rows_no_header_manual (
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE first_rows_no_header_auto (
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2020_Full (
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2020_Full_Manual_Header_Drop (
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+CREATE TABLE yr_2020_Full_Auto_Header_Drop (
+    tripduration REAL,
+    starttime TEXT,
+    stoptime TEXT,
+    start_station_id INTEGER,
+    start_station_name TEXT,
+    start_station_latitude REAL,
+    start_station_longitude REAL,
+    end_station_id INTEGER,
+    end_station_name TEXT,
+    end_station_latitude REAL,
+    end_station_longitude REAL,
+    bikeid INTEGER,
+    usertype TEXT,
+    birth_year INTEGER,
+    gender INTEGER
+);
+
+SELECT * FROM first_rows;
+SELECT * FROM first_rows_no_header_manual;
+SELECT * FROM first_rows_no_header_auto;
+
+SELECT * FROM yr_2020_Full LIMIT 3;
+SELECT * FROM yr_2020_Full_Manual_Header_Drop LIMIT 3;
+SELECT * FROM yr_2020_Full_Auto_Header_Drop LIMIT 3;
