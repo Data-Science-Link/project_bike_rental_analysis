@@ -107,3 +107,16 @@ As temperature drops, Citi Bike operators have historically moved bikes from the
 Over the course of Citi Bike’s program history, annual subscriptions have accounted for 42% of total revenue. From 2017 - 2019 annual subscriptions have flatlined with a growth rate of approximately zero (-0.2%). Assuming that this plateau of subscriptions is nationally applicable, we recommend that bike share program managers decrease the cost of casual ridership to attract new customers into the subscription base. Additionally, through comparative analysis of NYC, SF, and DC, we found that the majority of rides are under 20 minutes. Knowing this, program managers could offer generous subscription rules (unlimited rides less than 3 hours) while knowing that very few people will actually take advantage of these benefits.
 
 Additionally, Citi Bike has not been entirely immune to COVID-19 financial impacts.  Despite low April 2020 revenue in comparison to projected values,  the $2.8 million observed is still comparable to Citi Bike’s April 2018 revenue. There also appears to be a nation-wide increase in demand for bikes since the start of the pandemic, as people look for socially distanced alternatives to traditional modes of public transportation [5]. In light of this, it is fair to conclude that Citi Bike is still able to remain a fully operating business, despite the state mandated lockdown. Assuming similar levels of population density, other bike share program managers can expect the continuation of a viable pandemic business model as people move from crowded public transit to comparatively safe bike transit.
+
+## Contributors
+ - Jessie Wang - www.linkedin.com/in/jwangxin
+ - Alex Tin - www.linkedin.com/in/alexandertin
+ - Michael Link - www.linkedin.com/in/data-science-link
+ - Catherine Tang Kim Sin - www.linkedin.com/in/catherine-nicole-tang-kim-sin-a25a64192
+
+## Sources
+ - [1]-https://nacto.org/program/bike-share-initiative/
+ - [2]-https://s3.amazonaws.com/tripdata/index.html
+ - [3]- https://www.researchgate.net/publication/281672365_The_Hilliness_of_US_Cities
+ - [4]-https://www.billboardconnectionadvertising.com/taxi-cab-advertising-boston-effective/
+ - [5]-https://www.businessinsider.com/united-states-is-running-out-of-bikes-during-coronavirus-pandemic-2020-5
